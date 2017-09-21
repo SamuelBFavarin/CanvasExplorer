@@ -1,0 +1,35 @@
+<canvas height="500" width="500" id="MyCanvas" style="border:1px solid #000000;">
+</canvas>
+
+<script type="text/javascript">
+	
+	function getCor(num){
+		if(num === 0) return 'pink';
+		if(num === 1) return 'yellow';
+		if(num === 2) return 'blue';
+		if(num === 3) return 'green';
+		if(num === 4) return 'red';
+	}	
+
+	function gerarPassaro(posX,posY){
+		ctx.rect(posX,posY,tamanhoPixel*5,tamanhoPixel*5);
+		ctx.fillStyle = "yellow";
+	    ctx.fill();
+	};
+
+
+	function gerarJogo(){
+		posX = Math.random() * (495 - 0) + 0;
+		posY = Math.random() * (495 - 0) + 0;
+		gerarPassaro(posX,posY);	
+		requestAnimationFrame(gerarJogo);	
+	}
+	//main
+	var c=document.getElementById("MyCanvas");
+	var ctx=c.getContext("2d");
+	
+	var tamanhoPixel = 1;
+	var gravidade = 3.75;
+	gerarJogo();
+
+</script>
